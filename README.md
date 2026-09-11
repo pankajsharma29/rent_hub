@@ -1,5 +1,22 @@
 # RentHub
 
+A web-based apartment rental platform where users can browse listings, post apartments for rent, mark favorites, and comment on listings. Built with Angular 22, using local JSON data and browser storage (no backend server required).
+
+**Live demo:** https://renthubb.netlify.app/
+
+## Demo Login Credentials
+
+Since this is a demo project using local storage (not a real backend), you can log in with either of these seeded accounts:
+
+| Email | Password |
+|---|---|
+| `john@example.com` | `password123` |
+| `jane@example.com` | `password123` |
+
+You can also click **Register** to create your own account — it will be saved in your browser's local storage and will persist across visits on the same browser/device.
+
+> **Note:** This is a demo/prototype application. Data (users, listings, comments, favorites) is stored in your browser's `localStorage`, not on a server — so accounts and posts won't sync across different browsers or devices, and clearing your browser data will reset the app.
+
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.1.6.
 
 ## Development server
