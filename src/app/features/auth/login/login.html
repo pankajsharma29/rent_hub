@@ -1,0 +1,29 @@
+<div class="auth-container">
+  <h2>Login</h2>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <label>Email</label>
+    <input type="email" formControlName="email" />
+    @if (form.get('email')?.touched && form.get('email')?.invalid) {
+      <p class="error">
+        @if (form.get('email')?.errors?.['required']) { Email is required. }
+        @if (form.get('email')?.errors?.['email']) { Enter a valid email address. }
+      </p>
+    }
+
+    <label>Password</label>
+    <input type="password" formControlName="password" />
+    @if (form.get('password')?.touched && form.get('password')?.invalid) {
+      <p class="error">
+        @if (form.get('password')?.errors?.['required']) { Password is required. }
+        @if (form.get('password')?.errors?.['minlength']) { Password must be at least 6 characters. }
+      </p>
+    }
+
+    @if (errorMessage()) {
+      <p class="error">{{ errorMessage() }}</p>
+    }
+
+    <button type="submit" class="btn">Login</button>
+  </form>
+  <p>Don't have an account? <a routerLink="/register">Register</a></p>
+</div>

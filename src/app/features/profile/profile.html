@@ -1,0 +1,36 @@
+<app-navbar />
+
+<div class="profile-container">
+  @if (user(); as user) {
+    <div class="profile-card">
+      <h2>My Profile</h2>
+      <p><strong>Name:</strong> {{ user.name }}</p>
+      <p><strong>Email:</strong> {{ user.email }}</p>
+      <button class="btn btn-outline" (click)="logout()">Logout</button>
+    </div>
+
+    <section class="profile-section">
+      <h3>My Listings ({{ myListings().length }})</h3>
+      <div class="listing-grid">
+        @for (listing of myListings(); track listing.id) {
+          <app-listing-card [listing]="listing" />
+        } @empty {
+          <p class="empty-msg">You haven't posted any listings yet.</p>
+        }
+      </div>
+    </section>
+
+    <section class="profile-section">
+      <h3>My Favorites ({{ myFavorites().length }})</h3>
+      <div class="listing-grid">
+        @for (listing of myFavorites(); track listing.id) {
+          <app-listing-card [listing]="listing" />
+        } @empty {
+          <p class="empty-msg">You haven't favorited any listings yet.</p>
+        }
+      </div>
+    </section>
+  } @else {
+    <p>Please log in to view your profile.</p>
+  }
+</div>

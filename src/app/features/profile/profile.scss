@@ -1,0 +1,29 @@
+.profile-container {
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 0 20px 40px;
+}
+
+.profile-card {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 16px 20px;
+  margin-bottom: 24px;
+
+  h2 { margin-top: 0; }
+  p { margin: 6px 0; }
+  .btn { margin-top: 10px; }
+}
+
+.profile-section {
+  margin-top: 24px;
+
+  .listing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 16px;
+    margin-top: 12px;
+  }
+
+  .empty-msg { color: #666; font-size: 14px; }
+}

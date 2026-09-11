@@ -1,0 +1,63 @@
+.detail-container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 0 20px 40px;
+}
+
+.back-link { display: inline-block; margin-bottom: 16px; text-decoration: none; }
+
+.listing-header {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+
+  img { width: 320px; height: 220px; object-fit: cover; border-radius: 4px; }
+  .listing-info { flex: 1; min-width: 260px; }
+
+  .price { font-weight: bold; font-size: 18px; }
+  .tag { font-size: 12px; background: #eee; padding: 2px 6px; border-radius: 3px; margin-left: 6px; }
+  .location { color: #555; }
+
+  .meta-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 6px;
+    margin: 12px 0;
+    font-size: 14px;
+  }
+
+  .amenities-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 4px;
+    padding-left: 18px;
+    font-size: 14px;
+  }
+}
+
+.comments-section {
+  margin-top: 30px;
+  border-top: 1px solid #eee;
+  padding-top: 20px;
+
+  .comment {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px 12px;
+    margin-bottom: 10px;
+
+    p { margin: 4px 0 0; }
+  }
+
+  .no-comments { color: #666; font-size: 14px; }
+
+  .add-comment {
+    margin-top: 16px;
+
+    label { display: block; margin-bottom: 6px; font-weight: bold; }
+    textarea { width: 100%; padding: 8px; border: 1px solid #ccc; }
+    .btn { margin-top: 8px; }
+    .error { color: #c00; font-size: 13px; }
+    .login-prompt { font-size: 14px; }
+  }
+}

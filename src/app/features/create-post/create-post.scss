@@ -1,0 +1,49 @@
+.form-container {
+  max-width: 600px;
+  margin: 30px auto;
+  padding: 0 20px 40px;
+
+  .image-preview {
+    margin-top: 10px;
+
+    img {
+      width: 240px;
+      height: 160px;
+      object-fit: cover;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      display: block;
+    }
+
+    .btn-sm {
+      margin-top: 8px;
+      padding: 6px 12px;
+      font-size: 13px;
+    }
+  }
+
+  .hint {
+    font-size: 13px;
+    color: #666;
+    margin-top: 6px;
+  }
+
+  h3 { margin-top: 24px; }
+  label { display: block; margin-top: 10px; font-size: 14px; }
+  input[type="text"], input[type="number"], select, textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 4px;
+    border: 1px solid #ccc;
+  }
+  input[type="radio"], input[type="checkbox"] { width: auto; margin-right: 6px; }
+  .amenities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 6px;
+    margin-top: 8px;
+  }
+  .error { color: #c00; font-size: 13px; margin: 4px 0 0; }
+  .char-count { font-size: 12px; color: #666; text-align: right; margin: 4px 0 0; }
+  .btn { margin-top: 20px; }
+}

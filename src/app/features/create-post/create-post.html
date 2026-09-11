@@ -1,0 +1,122 @@
+<app-navbar />
+
+<div class="form-container">
+  <h2>Create New Post</h2>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+    <h3>Choose your Apartment/Building</h3>
+    <label>Choose your Apartment/Building</label>
+    <select formControlName="aptBuilding">
+      <option value="">Select an option</option>
+      @for (opt of aptBuildingOptions; track opt) {
+        <option [value]="opt">{{ opt }}</option>
+      }
+    </select>
+    @if (form.get('aptBuilding')?.touched && form.get('aptBuilding')?.invalid) {
+      <p class="error">Please select an apartment/building.</p>
+    }
+
+    <label>Enter the name of your property</label>
+    <input type="text" formControlName="propertyName" />
+    @if (form.get('propertyName')?.touched && form.get('propertyName')?.invalid) {
+      <p class="error">Property name is required.</p>
+    }
+
+    <h3>Is this a shared property?</h3>
+    <label><input type="radio" formControlName="isSharedProperty" value="yes" /> Yes</label>
+    <label><input type="radio" formControlName="isSharedProperty" value="no" /> No</label>
+    @if (form.get('isSharedProperty')?.touched && form.get('isSharedProperty')?.invalid) {
+      <p class="error">Please select an option.</p>
+    }
+
+    <h3>Property Location</h3>
+    <label>Street Address</label>
+    <input type="text" formControlName="streetAddress" placeholder="Enter street address" />
+    @if (form.get('streetAddress')?.touched && form.get('streetAddress')?.invalid) {
+      <p class="error">Street address is required.</p>
+    }
+
+    <h3>Property Details</h3>
+    <label>Square Feet</label>
+    <input type="number" formControlName="squareFeet" placeholder="Enter area in square feet" />
+    @if (form.get('squareFeet')?.touched && form.get('squareFeet')?.invalid) {
+      <p class="error">Enter a valid area.</p>
+    }
+
+    <label>Stay / Lease type</label>
+    <label><input type="radio" formControlName="leaseType" value="long-term" /> Long term (6+ months)</label>
+    <label><input type="radio" formControlName="leaseType" value="short-term" /> Short term</label>
+    <label><input type="radio" formControlName="leaseType" value="both" /> Both</label>
+    @if (form.get('leaseType')?.touched && form.get('leaseType')?.invalid) {
+      <p class="error">Please select a lease type.</p>
+    }
+
+    <h3>Expected Rent</h3>
+    <label>Expected Rent</label>
+    <input type="number" formControlName="expectedRent" placeholder="Enter expected rent" />
+    @if (form.get('expectedRent')?.touched && form.get('expectedRent')?.invalid) {
+      <p class="error">Enter a valid rent amount.</p>
+    }
+
+    <label><input type="checkbox" formControlName="negotiable" /> Negotiable</label>
+
+    <label>Price Mode</label>
+    <label><input type="radio" formControlName="priceMode" value="per-month" /> Per Month</label>
+    <label><input type="radio" formControlName="priceMode" value="utilities-included" /> Utilities included in rent</label>
+    @if (form.get('priceMode')?.touched && form.get('priceMode')?.invalid) {
+      <p class="error">Please select a price mode.</p>
+    }
+
+    <h3>Is the room/apartment furnished?</h3>
+    <label><input type="radio" formControlName="furnished" value="yes" /> Yes</label>
+    <label><input type="radio" formControlName="furnished" value="no" /> No</label>
+    @if (form.get('furnished')?.touched && form.get('furnished')?.invalid) {
+      <p class="error">Please select an option.</p>
+    }
+
+    <h3>Amenities included</h3>
+    <div class="amenities-grid">
+      @for (amenity of amenitiesList; track amenity) {
+        <label>
+          <input type="checkbox" (change)="toggleAmenity(amenity, $any($event.target).checked)" />
+          {{ amenity }}
+        </label>
+      }
+    </div>
+
+    <h3>Description</h3>
+    <label>Title</label>
+    <input type="text" formControlName="title" placeholder="Enter your AD title" />
+    @if (form.get('title')?.touched && form.get('title')?.invalid) {
+      <p class="error">Title is required (min 5 characters).</p>
+    }
+
+    <label>Description</label>
+    <textarea formControlName="description" rows="5" maxlength="1400"
+      placeholder="Enter a detailed description within 1400 characters"
+      (input)="onDescriptionInput($any($event.target).value)"></textarea>
+    <p class="char-count">{{ descriptionLength() }}/1400</p>
+    @if (form.get('description')?.touched && form.get('description')?.invalid) {
+      <p class="error">Description is required (max 1400 characters).</p>
+    }
+
+    <h3>Property Photo</h3>
+    <label>Upload a photo (optional, max 2MB)</label>
+    <input type="file" accept="image/*" (change)="onFileSelected($event)" />
+
+    @if (imageError()) {
+      <p class="error">{{ imageError() }}</p>
+    }
+
+    @if (imagePreview(); as preview) {
+      <div class="image-preview">
+        <img [src]="preview" alt="Property preview" />
+        <button type="button" class="btn btn-outline btn-sm" (click)="removeImage()">Remove</button>
+      </div>
+    } @else {
+      <p class="hint">No photo selected — a placeholder image will be used instead.</p>
+    }
+
+    <button type="submit" class="btn">Submit</button>
+  </form>
+</div>

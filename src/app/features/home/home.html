@@ -1,0 +1,56 @@
+<app-navbar />
+<section class="carousel">
+  <div class="slider">
+    @if (featuredListings().length) {
+      <button class="nav-btn" (click)="prevSlide()">&lt;</button>
+      <img [src]="currentFeatured()?.imageUrl" [alt]="currentFeatured()?.title" />
+      <button class="nav-btn" (click)="nextSlide()">&gt;</button>
+    } @else {
+      <p class="empty-slider">No listings available.</p>
+    }
+  </div>
+
+  <div class="featured-panel">
+    <h2>Featured Listings</h2>
+    @if (currentFeatured(); as listing) {
+      <p>{{ listing.description }}</p>
+      <div class="actions">
+        <a [routerLink]="['/listing', listing.id]" class="btn">View Details</a>
+        <button class="btn btn-outline" (click)="toggleFeaturedFavorite()">
+          {{ isFeaturedFavorite() ? '★ Favorited' : '☆ Mark as Favorite' }}
+        </button>
+      </div>
+    } @else {
+      <p>No featured listings.</p>
+    }
+  </div>
+</section>
+
+<section class="filters">
+  <input type="text" placeholder="Search listings..." (input)="onSearchChange($any($event.target).value)" />
+
+  <select (change)="onLocationChange($any($event.target).value)">
+    <option value="">All Locations</option>
+    @for (loc of locations(); track loc) {
+      <option [value]="loc">{{ loc }}</option>
+    }
+  </select>
+
+  <input type="number" placeholder="Max price" (input)="onMaxPriceChange($any($event.target).value)" />
+
+  <label>
+    <input type="checkbox" (change)="onFurnishedChange($any($event.target).checked)" />
+    Furnished only
+  </label>
+</section>
+
+<section class="listings">
+  <h2>All Listings</h2>
+  <div class="listing-grid">
+    @for (listing of filteredListings(); track listing.id) {
+      <app-listing-card [listing]="listing" />
+    } @empty {
+      <p>No listings match your search.</p>
+    }
+  </div>
+</section>

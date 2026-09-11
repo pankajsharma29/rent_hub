@@ -1,1 +1,20 @@
-/* You can add global styles to this file, and also import other style files */
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #222;
+}
+
+.btn {
+  display: inline-block;
+  padding: 6px 12px;
+  border: 1px solid #333;
+  background: #333;
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 14px;
+
+  &.btn-outline { background: #fff; color: #333; }
+}/* You can add global styles to this file, and also import other style files */

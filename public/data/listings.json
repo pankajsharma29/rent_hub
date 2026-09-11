@@ -1,0 +1,68 @@
+[
+  {
+    "id": 1,
+    "title": "Apartment 1",
+    "description": "Spacious 2BHK apartment close to the city center with modern amenities.",
+    "price": 1200,
+    "location": "Downtown",
+    "amenities": ["Gym/Fitness Center", "Power Backup", "Car Park"],
+    "furnished": true,
+    "imageUrl": "https://loremflickr.com/500/300/apartment,livingroom?lock=101",
+    "featured": true
+  },
+  {
+    "id": 2,
+    "title": "Apartment 2",
+    "description": "Cozy studio apartment, ideal for singles or students.",
+    "price": 800,
+    "location": "Uptown",
+    "amenities": ["Swimming Pool", "Laundry Service"],
+    "furnished": false,
+    "imageUrl": "https://loremflickr.com/500/300/studio,apartment?lock=102",
+    "featured": true
+  },
+  {
+    "id": 3,
+    "title": "Apartment 3",
+    "description": "Modern 3BHK apartment with a private lawn and elevator access.",
+    "price": 1800,
+    "location": "Suburb",
+    "amenities": ["Private Lawn", "Elevator", "Club House"],
+    "furnished": true,
+    "imageUrl": "https://loremflickr.com/500/300/apartment,livingroom?lock=101",
+    "featured": false
+  },
+  {
+    "id": 4,
+    "title": "Apartment 4",
+    "description": "Affordable 1BHK near public transport with visitor parking.",
+    "price": 650,
+    "location": "Downtown",
+    "amenities": ["Visitors Parking", "Water Heater"],
+    "furnished": false,
+    "imageUrl": "https://loremflickr.com/500/300/bedroom,apartment?lock=104",
+    "featured": false
+  },
+  {
+    "id": 5,
+    "title": "Apartment 5",
+    "description": "Luxury apartment with plant security system and garbage disposal.",
+    "price": 2200,
+    "location": "Uptown",
+    "amenities": ["Plant Security System", "Garbage Disposal"],
+    "furnished": true,
+    "imageUrl": "https://loremflickr.com/500/300/luxury,apartment?lock=105",
+    "featured": true
+  },
+  {
+    "id": 6,
+    "title": "Apartment 6",
+    "description": "Compact and budget-friendly 1BHK, short-term lease available.",
+    "price": 750,
+    "location": "Suburb",
+    "amenities": ["Car Park"],
+    "furnished": false,
+    "imageUrl": "https://loremflickr.com/500/300/flat,interior?lock=106",
+    "featured": false
+  }
+]

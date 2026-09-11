@@ -1,0 +1,25 @@
+<header class="topbar">
+  <a routerLink="/" class="logo">RentHub</a>
+  <nav>
+    @if (authService.isLoggedIn()) {
+      <a routerLink="/create-post" class="btn btn-sm">Create Post</a>
+      <a routerLink="/profile" class="btn btn-sm btn-outline">Profile</a>
+
+      <div class="user-menu">
+        <button class="user-trigger" (click)="toggleDropdown()">
+          Hi, {{ authService.currentUser()?.name }}
+          <span class="caret">{{ dropdownOpen() ? '▲' : '▼' }}</span>
+        </button>
+
+        @if (dropdownOpen()) {
+          <div class="dropdown">
+            <button class="dropdown-item" (click)="logout()">Logout</button>
+          </div>
+        }
+      </div>
+    } @else {
+      <a routerLink="/login">Login</a>
+      <a routerLink="/register">Register</a>
+    }
+  </nav>
+</header>
